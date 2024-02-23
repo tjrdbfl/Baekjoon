@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 백준 1931. 회의실 배정
  * */
 
-public class Baekjoon3 {
+public class Baekjoon1931 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -14,7 +14,7 @@ public class Baekjoon3 {
         int n = sc.nextInt();
         int[][] arr = new int[n][2];
         int temp1 = 0, temp2 = 0, last = 0;
-        int count = 0, max = 0;
+        int count = 0, mai = 0;
 
         for (int i = 0; i < arr.length; i++) {
             int j = 0;
@@ -56,11 +56,11 @@ public class Baekjoon3 {
                 }
             }
 
-            if (max < count) {
-                max = count;
+            if (mai < count) {
+                mai = count;
             }
         }
-        System.out.println(max);
+        System.out.println(mai);
 
     }
 }
