@@ -36,7 +36,7 @@ public class Baekjoon2309 {
             }
         }
 
-        for (int i = 0; i < arr.length; i++)  {
+        for (int i = 0; i < arr.length; i++) {
             if (arr[i] != num1 && arr[i] != num2) {
                 System.out.println(arr[i]);
             }
