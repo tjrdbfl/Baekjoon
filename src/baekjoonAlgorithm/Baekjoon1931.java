@@ -10,34 +10,34 @@ public class Baekjoon1931 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int[][] times = new int[sc.nextInt()][2];
 
-        int n=sc.nextInt();
+        int cnt = 0;
+        int prev_end_time = 0;
 
-        int cnt=1,temp=0;
-
-        int[][] arr=new int[n][2];
-
-        for(int i=0;i<arr.length;i++){
-            arr[i][0]= sc.nextInt();
-            arr[i][1]= sc.nextInt();
+        for(int i = 0; i < times.length; i++) {
+            times[i][0] = sc.nextInt();
+            times[i][1] = sc.nextInt();
         }
 
-        Arrays.sort(arr,(arr1,arr2) -> {
-            if(arr1[1]==arr2[1]){
-                return arr1[0]-arr2[0];
+        Arrays.sort(times, new Comparator<int[]>() {
+            public int compare(int[] o1, int[] o2) {
+                if(o1[1] == o2[1]){
+                    return o1[0]-o2[0];
+                }
+                return o1[1]-o2[1];
             }
-            return arr1[1]-arr2[1];
         });
 
 
-        for(int i=1;i < arr.length;i++){
-            if(arr[i][0]>=temp){
-                temp=arr[i][1];
+        for(int i = 0; i < times.length; i++) {
+            if (prev_end_time <= times[i][0]) {
+                prev_end_time = times[i][1];
                 cnt++;
             }
         }
-        System.out.println(cnt);
 
+        System.out.println(cnt);
     }
 }
 
