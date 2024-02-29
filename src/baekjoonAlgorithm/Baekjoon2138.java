@@ -43,7 +43,6 @@ public class Baekjoon2138 {
         if(test1[n-1] != answer[n-1]) ans1 = INF;
         if(test2[n-1] != answer[n-1]) ans2 = INF;
 
-
         if(ans1 == INF && ans2 == INF)
             System.out.println(-1);
         else

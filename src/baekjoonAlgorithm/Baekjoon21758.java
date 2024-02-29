@@ -1,21 +1,18 @@
 package baekjoonAlgorithm;
-/*
-* 백준 21758. 꿀 따기
-* */
+
 import java.util.Scanner;
 
-public class Baekjoon2 {
+public class Baekjoon21758 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int n=0;
         int bee1,bee2,beehive;
-        int max=0,sum=0,sum1=0,sum2=0;
+        int mai=0,sum=0,sum1=0,sum2=0;
 
         n=sc.nextInt();
         int[] arr=new int[n];
-
 
         for(int i=0;i<arr.length;i++){
             arr[i]=sc.nextInt();
@@ -40,8 +37,8 @@ public class Baekjoon2 {
 
                             sum = sum1 + sum2;
 
-                            if(max < sum){
-                                max=sum;
+                            if(mai < sum){
+                                mai=sum;
                             }
 
                         }
@@ -51,7 +48,7 @@ public class Baekjoon2 {
             }
         }
 
-        System.out.println(max);
+        System.out.println(mai);
     }
     public static int findSum(int bee1,int bee2,int beehive, int[] arr){
         int sum=0;

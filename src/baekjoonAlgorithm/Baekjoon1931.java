@@ -1,11 +1,6 @@
 package baekjoonAlgorithm;
 
 import java.util.*;
-
-/*
- * 백준 1931. 회의실 배정
- * */
-
 public class Baekjoon1931 {
 
     public static void main(String[] args) {
