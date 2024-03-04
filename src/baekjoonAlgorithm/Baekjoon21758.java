@@ -1,75 +1,41 @@
 package baekjoonAlgorithm;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Baekjoon21758 {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n=0;
-        int bee1,bee2,beehive;
-        int mai=0,sum=0,sum1=0,sum2=0;
+        int N = Integer.parseInt(br.readLine());
+        int[] honey = new int[N+1];
+        int[] sum = new int[N+1];
 
-        n=sc.nextInt();
-        int[] arr=new int[n];
-
-        for(int i=0;i<arr.length;i++){
-            arr[i]=sc.nextInt();
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for(int i=1;i<=N; i++) {
+            honey[i] = Integer.parseInt(st.nextToken());
+            sum[i] = honey[i]+ sum[i-1];
         }
 
-        int count=0;
-        for(int i = 0; i < arr.length; i++) {
-            beehive=i;
-            for(int j = 0; j < arr.length; j++) {
-                bee1=j;
-                if(beehive!=bee1){
-                    for(int k = 0; k < arr.length; k++) {
-                        bee2=k;
+        int ans = 0;
 
-                        if(beehive==bee2){
-                            continue;
-                        }else if(bee1==bee2){
-                            continue;
-                        }else {
-                            sum1 = findSum(bee1, bee2, beehive, arr);
-                            sum2 = findSum(bee2, bee1, beehive, arr);
-
-                            sum = sum1 + sum2;
-
-                            if(mai < sum){
-                                mai=sum;
-                            }
-
-                        }
-                    }
-
-                }
-            }
+        for(int i=2; i<=N-1; i++) {
+            int tmp = sum[N] - honey[1] - honey[i] + sum[N] - sum[i];
+            ans = Math.max(ans, tmp);
         }
 
-        System.out.println(mai);
+        for(int i=2; i<=N-1; i++) {
+            int tmp = sum[N-1]-sum[i-1]+sum[i]-sum[1];
+            ans = Math.max(ans, tmp);
+        }
+
+        for(int i=2; i<=N-1; i++) {
+            int tmp = sum[N-1] - honey[i] + sum[i-1];
+            ans = Math.max(ans, tmp);
+        }
+        System.out.println(ans);
     }
-    public static int findSum(int bee1,int bee2,int beehive, int[] arr){
-        int sum=0;
-        if(bee1<beehive){
-            for(int i=bee1+1;i<=beehive;i++){
-                sum += arr[i];
-            }
-            if(bee2>bee1 && bee2<beehive) {
-                sum-=arr[bee2];
-            }
-        }else{
-            for(int i=bee1-1;i>=beehive;i--){
-                sum += arr[i];
-            }
-            if(bee2<bee1 && bee2>beehive) {
-                sum-=arr[bee2];
-            }
-        }
-
-
-        return sum;
-    }
-
 }

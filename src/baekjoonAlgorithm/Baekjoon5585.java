@@ -13,13 +13,12 @@ public class Baekjoon5585 {
         int[] change={500,100,50,10,5,1};
 
         for(int i=0;i<change.length;i++){
-            if(amount>change[i] && amount>0){
+            if(amount/change[i]>0){
                 cnt+=amount/change[i];
                 amount%=change[i];
             }
         }
 
         System.out.println(cnt);
-
     }
 }
