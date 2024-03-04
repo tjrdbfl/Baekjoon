@@ -12,9 +12,6 @@ public class Baekjoon4659 {
         char prev;
         int count;
 
-        String accept="> is acceptable.\n";
-        String notAccept="> is not acceptable.\n";
-
         StringBuilder sb=new StringBuilder();
 
         while(!(password=br.readLine()).equals("end")){
@@ -34,8 +31,8 @@ public class Baekjoon4659 {
                 }
                 prev=p;
             }
-            if(flag) sb.append('<').append(password).append(accept);
-            else sb.append('<').append(password).append(notAccept);
+            if(flag) sb.append('<').append(password).append("> is acceptable.\n");
+            else sb.append('<').append(password).append("> is not acceptable.\n");
 
         }
         System.out.println(sb);
