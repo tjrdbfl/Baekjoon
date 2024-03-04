@@ -5,26 +5,26 @@ public class Baekjoon1931 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[][] times = new int[sc.nextInt()][2];
+        int[][] time = new int[sc.nextInt()][2];
 
         int cnt = 0;
-        int prev_end_time = 0;
+        int prevTime = 0;
 
-        for(int i = 0; i < times.length; i++) {
-            times[i][0] = sc.nextInt();
-            times[i][1] = sc.nextInt();
+        for(int i = 0; i < time.length; i++) {
+            time[i][0] = sc.nextInt();
+            time[i][1] = sc.nextInt();
         }
 
-        Arrays.sort(times,((o1, o2) -> {
+        Arrays.sort(time,((o1, o2) -> {
             if(o1[1]==o2[1])
                 return o1[0]-o2[0];
             else return o1[1]-o2[1];
         }));
 
 
-        for(int i = 0; i < times.length; i++) {
-            if (prev_end_time <= times[i][0]) {
-                prev_end_time = times[i][1];
+        for(int i = 0; i < time.length; i++) {
+            if (prevTime <= time[i][0]) {
+                prevTime = time[i][1];
                 cnt++;
             }
         }
