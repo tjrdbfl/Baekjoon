@@ -17,22 +17,22 @@ public class Baekjoon21758 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         for(int i=1;i<=N; i++) {
             honey[i] = Integer.parseInt(st.nextToken());
-            sum[i] = honey[i]+ sum[i-1];
+            sum[i] = honey[i]+sum[i-1];
         }
 
         int ans = 0;
 
-        for(int i=2; i<=N-1; i++) {
+        for(int i=2; i<N; i++) {
             int tmp = sum[N] - honey[1] - honey[i] + sum[N] - sum[i];
             ans = Math.max(ans, tmp);
         }
 
-        for(int i=2; i<=N-1; i++) {
+        for(int i=2; i<N; i++) {
             int tmp = sum[N-1]-sum[i-1]+sum[i]-sum[1];
             ans = Math.max(ans, tmp);
         }
 
-        for(int i=2; i<=N-1; i++) {
+        for(int i=2; i<N; i++) {
             int tmp = sum[N-1] - honey[i] + sum[i-1];
             ans = Math.max(ans, tmp);
         }
