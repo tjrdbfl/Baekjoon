@@ -1,4 +1,4 @@
-package baekjoonAlgorithm;
+package baekjoonGreedy;
 import java.util.Scanner;
 
 public class Baekjoon2138 {

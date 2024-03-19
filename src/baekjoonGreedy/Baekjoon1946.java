@@ -1,4 +1,4 @@
-package baekjoonAlgorithm;
+package baekjoonGreedy;
 
 import java.io.*;
 import java.util.*;
